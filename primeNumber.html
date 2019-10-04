@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>primeNumber</title>
+</head>
+<body>
+Moi nhap vao so luong so nguyen to can hien thi: <input id="quantity" type="number">
+<button id="result" onclick="ketQua()">Click to show result</button>
+<script>
+    function check(n) {
+        var kq=true;
+        if (n<2) {
+            kq=false;
+        } else if (n==2) {
+            kq=true;
+        } else if (n%2==0) {
+            kq=false;
+        } else {
+            for (i=3; i<n ; i+=2) {
+                if (n%i==0) {
+                    kq=false;
+                    break;
+                }
+            }
+        }
+        return kq
+    }
+    function ketQua() {
+        var num=parseInt(document.getElementById("quantity").value);
+        var result="";
+        var count=0;
+        var j=0;
+        while (count<num) {
+            if (check(j)==true) {
+                result=result+j+", ";
+                count++;
+            }
+            j++;
+        }
+        document.write(result);
+    }
+</script>
+</body>
+</html>
